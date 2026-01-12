@@ -1,0 +1,228 @@
+/* Map Component Styles */
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    background: #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 8px;
+}
+
+.map-canvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+/* Loading State */
+.map-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f9fafb;
+    gap: 1rem;
+}
+
+.map-loading p {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Error State */
+.map-error {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    padding: 2rem;
+    text-align: center;
+}
+
+.error-icon {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.map-error h3 {
+    color: #1e293b;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+}
+
+.map-error p {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin: 0 0 1rem;
+    max-width: 350px;
+}
+
+.error-help {
+    background: white;
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-width: 350px;
+}
+
+.error-help p {
+    color: #334155;
+    font-size: 0.85rem;
+    margin: 0 0 0.75rem;
+}
+
+.error-help ol {
+    margin: 0;
+    padding-left: 1.25rem;
+    color: #475569;
+    font-size: 0.8rem;
+    line-height: 1.7;
+}
+
+.error-help a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.error-help a:hover {
+    text-decoration: underline;
+}
+
+/* Map Controls */
+.map-controls {
+    position: absolute;
+    bottom: 6rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.map-control-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: white;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #374151;
+    transition: all 0.2s;
+}
+
+.map-control-btn:hover {
+    background: #f9fafb;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.map-control-btn:active {
+    transform: scale(0.95);
+}
+
+.map-control-btn.recenter:hover {
+    color: #6366f1;
+}
+
+/* Map Legend */
+.map-legend {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: white;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-marker {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.legend-marker.user {
+    background: #4285F4;
+}
+
+.legend-marker.place {
+    background: #ef4444;
+}
+
+.legend-marker.selected {
+    background: #6366f1;
+}
+
+.legend-label {
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
+/* Google Maps UI Overrides */
+.map-canvas .gm-style-iw-c {
+    border-radius: 12px !important;
+    padding: 0 !important;
+}
+
+.map-canvas .gm-style-iw-d {
+    overflow: hidden !important;
+}
+
+.map-canvas .gm-ui-hover-effect {
+    top: 0 !important;
+    right: 0 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .map-container {
+        min-height: 300px;
+    }
+
+    .map-controls {
+        bottom: 5rem;
+        right: 0.75rem;
+    }
+
+    .map-legend {
+        bottom: 0.75rem;
+        left: 0.75rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .legend-label {
+        font-size: 0.7rem;
+    }
+}

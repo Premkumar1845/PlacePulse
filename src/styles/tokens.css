@@ -1,0 +1,399 @@
+/**
+ * PlacePulse Design Tokens
+ * A comprehensive design system for location-based intelligence
+ * 
+ * Structure:
+ * 1. Color System
+ * 2. Typography Scale
+ * 3. Spacing (8px grid)
+ * 4. Border Radius
+ * 5. Elevation / Shadows
+ * 6. Motion / Animation
+ * 7. Layout
+ */
+
+:root {
+    /* ========================================
+       1. COLOR SYSTEM
+       ======================================== */
+
+    /* Primary - Location Blue */
+    --pp-primary-50: #eff6ff;
+    --pp-primary-100: #dbeafe;
+    --pp-primary-200: #bfdbfe;
+    --pp-primary-300: #93c5fd;
+    --pp-primary-400: #60a5fa;
+    --pp-primary-500: #3b82f6;
+    --pp-primary-600: #2563eb;
+    --pp-primary-700: #1d4ed8;
+    --pp-primary-800: #1e40af;
+    --pp-primary-900: #1e3a8a;
+
+    /* Secondary - Pulse Purple */
+    --pp-secondary-50: #faf5ff;
+    --pp-secondary-100: #f3e8ff;
+    --pp-secondary-200: #e9d5ff;
+    --pp-secondary-300: #d8b4fe;
+    --pp-secondary-400: #c084fc;
+    --pp-secondary-500: #a855f7;
+    --pp-secondary-600: #9333ea;
+    --pp-secondary-700: #7c3aed;
+    --pp-secondary-800: #6b21a8;
+    --pp-secondary-900: #581c87;
+
+    /* Accent - Signal Cyan */
+    --pp-accent-50: #ecfeff;
+    --pp-accent-100: #cffafe;
+    --pp-accent-200: #a5f3fc;
+    --pp-accent-300: #67e8f9;
+    --pp-accent-400: #22d3ee;
+    --pp-accent-500: #06b6d4;
+    --pp-accent-600: #0891b2;
+    --pp-accent-700: #0e7490;
+    --pp-accent-800: #155e75;
+    --pp-accent-900: #164e63;
+
+    /* Neutral - Slate */
+    --pp-neutral-0: #ffffff;
+    --pp-neutral-50: #f8fafc;
+    --pp-neutral-100: #f1f5f9;
+    --pp-neutral-200: #e2e8f0;
+    --pp-neutral-300: #cbd5e1;
+    --pp-neutral-400: #94a3b8;
+    --pp-neutral-500: #64748b;
+    --pp-neutral-600: #475569;
+    --pp-neutral-700: #334155;
+    --pp-neutral-800: #1e293b;
+    --pp-neutral-900: #0f172a;
+    --pp-neutral-950: #020617;
+
+    /* Semantic Colors */
+    --pp-success-50: #f0fdf4;
+    --pp-success-500: #22c55e;
+    --pp-success-600: #16a34a;
+
+    --pp-warning-50: #fffbeb;
+    --pp-warning-500: #f59e0b;
+    --pp-warning-600: #d97706;
+
+    --pp-error-50: #fef2f2;
+    --pp-error-500: #ef4444;
+    --pp-error-600: #dc2626;
+
+    --pp-info-50: #eff6ff;
+    --pp-info-500: #3b82f6;
+    --pp-info-600: #2563eb;
+
+    /* Brand Gradient */
+    --pp-gradient-brand: linear-gradient(135deg, var(--pp-primary-500) 0%, var(--pp-secondary-600) 100%);
+    --pp-gradient-brand-vivid: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #d946ef 100%);
+    --pp-gradient-surface: linear-gradient(180deg, var(--pp-neutral-50) 0%, var(--pp-neutral-100) 100%);
+    --pp-gradient-pulse: radial-gradient(circle, var(--pp-primary-400) 0%, transparent 70%);
+
+    /* ========================================
+       2. TYPOGRAPHY SCALE
+       ======================================== */
+
+    /* Font Families */
+    --pp-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --pp-font-display: 'Plus Jakarta Sans', var(--pp-font-sans);
+    --pp-font-mono: 'JetBrains Mono', 'SF Mono', 'Monaco', monospace;
+
+    /* Font Sizes - Fluid Typography */
+    --pp-text-xs: 0.75rem;
+    /* 12px */
+    --pp-text-sm: 0.8125rem;
+    /* 13px */
+    --pp-text-base: 0.875rem;
+    /* 14px */
+    --pp-text-md: 1rem;
+    /* 16px */
+    --pp-text-lg: 1.125rem;
+    /* 18px */
+    --pp-text-xl: 1.25rem;
+    /* 20px */
+    --pp-text-2xl: 1.5rem;
+    /* 24px */
+    --pp-text-3xl: 1.875rem;
+    /* 30px */
+    --pp-text-4xl: 2.25rem;
+    /* 36px */
+    --pp-text-5xl: 3rem;
+    /* 48px */
+
+    /* Font Weights */
+    --pp-weight-normal: 400;
+    --pp-weight-medium: 500;
+    --pp-weight-semibold: 600;
+    --pp-weight-bold: 700;
+    --pp-weight-extrabold: 800;
+
+    /* Line Heights */
+    --pp-leading-none: 1;
+    --pp-leading-tight: 1.25;
+    --pp-leading-snug: 1.375;
+    --pp-leading-normal: 1.5;
+    --pp-leading-relaxed: 1.625;
+
+    /* Letter Spacing */
+    --pp-tracking-tighter: -0.05em;
+    --pp-tracking-tight: -0.025em;
+    --pp-tracking-normal: 0;
+    --pp-tracking-wide: 0.025em;
+    --pp-tracking-wider: 0.05em;
+
+    /* ========================================
+       3. SPACING (8px Grid)
+       ======================================== */
+
+    --pp-space-0: 0;
+    --pp-space-px: 1px;
+    --pp-space-0-5: 0.125rem;
+    /* 2px */
+    --pp-space-1: 0.25rem;
+    /* 4px */
+    --pp-space-1-5: 0.375rem;
+    /* 6px */
+    --pp-space-2: 0.5rem;
+    /* 8px - Base unit */
+    --pp-space-2-5: 0.625rem;
+    /* 10px */
+    --pp-space-3: 0.75rem;
+    /* 12px */
+    --pp-space-3-5: 0.875rem;
+    /* 14px */
+    --pp-space-4: 1rem;
+    /* 16px */
+    --pp-space-5: 1.25rem;
+    /* 20px */
+    --pp-space-6: 1.5rem;
+    /* 24px */
+    --pp-space-7: 1.75rem;
+    /* 28px */
+    --pp-space-8: 2rem;
+    /* 32px */
+    --pp-space-9: 2.25rem;
+    /* 36px */
+    --pp-space-10: 2.5rem;
+    /* 40px */
+    --pp-space-11: 2.75rem;
+    /* 44px */
+    --pp-space-12: 3rem;
+    /* 48px */
+    --pp-space-14: 3.5rem;
+    /* 56px */
+    --pp-space-16: 4rem;
+    /* 64px */
+    --pp-space-20: 5rem;
+    /* 80px */
+    --pp-space-24: 6rem;
+    /* 96px */
+
+    /* ========================================
+       4. BORDER RADIUS
+       ======================================== */
+
+    --pp-radius-none: 0;
+    --pp-radius-sm: 0.25rem;
+    /* 4px */
+    --pp-radius-md: 0.375rem;
+    /* 6px */
+    --pp-radius-lg: 0.5rem;
+    /* 8px */
+    --pp-radius-xl: 0.75rem;
+    /* 12px */
+    --pp-radius-2xl: 1rem;
+    /* 16px */
+    --pp-radius-3xl: 1.5rem;
+    /* 24px */
+    --pp-radius-full: 9999px;
+
+    /* ========================================
+       5. ELEVATION / SHADOWS
+       ======================================== */
+
+    /* Surface Shadows (Neutral) */
+    --pp-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --pp-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    --pp-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --pp-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --pp-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    --pp-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+    /* Colored Shadows (Brand) */
+    --pp-shadow-primary: 0 4px 14px 0 rgba(59, 130, 246, 0.25);
+    --pp-shadow-primary-lg: 0 10px 40px 0 rgba(59, 130, 246, 0.3);
+    --pp-shadow-secondary: 0 4px 14px 0 rgba(139, 92, 246, 0.25);
+    --pp-shadow-accent: 0 4px 14px 0 rgba(6, 182, 212, 0.25);
+
+    /* Glow Effects */
+    --pp-glow-sm: 0 0 10px rgba(59, 130, 246, 0.2);
+    --pp-glow-md: 0 0 20px rgba(59, 130, 246, 0.3);
+    --pp-glow-lg: 0 0 40px rgba(59, 130, 246, 0.4);
+    --pp-glow-pulse: 0 0 30px rgba(139, 92, 246, 0.4);
+
+    /* Card Shadows */
+    --pp-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.06);
+    --pp-shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.08), 0 16px 48px rgba(0, 0, 0, 0.08);
+    --pp-shadow-card-active: 0 2px 4px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.04);
+
+    /* Inset Shadow */
+    --pp-shadow-inset: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+
+    /* ========================================
+       6. MOTION / ANIMATION
+       ======================================== */
+
+    /* Duration */
+    --pp-duration-instant: 50ms;
+    --pp-duration-fast: 100ms;
+    --pp-duration-normal: 200ms;
+    --pp-duration-moderate: 300ms;
+    --pp-duration-slow: 400ms;
+    --pp-duration-slower: 500ms;
+    --pp-duration-slowest: 700ms;
+
+    /* Easing Curves */
+    --pp-ease-linear: linear;
+    --pp-ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --pp-ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --pp-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --pp-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --pp-ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    --pp-ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    /* Spring Presets (for JS) */
+    --pp-spring-snappy: 0.5;
+    --pp-spring-gentle: 0.7;
+    --pp-spring-bouncy: 0.3;
+
+    /* ========================================
+       7. LAYOUT
+       ======================================== */
+
+    /* Container */
+    --pp-container-sm: 640px;
+    --pp-container-md: 768px;
+    --pp-container-lg: 1024px;
+    --pp-container-xl: 1280px;
+    --pp-container-2xl: 1536px;
+
+    /* Panel Widths */
+    --pp-panel-width-sm: 320px;
+    --pp-panel-width-md: 400px;
+    --pp-panel-width-lg: 480px;
+
+    /* Z-Index Scale */
+    --pp-z-base: 0;
+    --pp-z-dropdown: 100;
+    --pp-z-sticky: 200;
+    --pp-z-overlay: 300;
+    --pp-z-modal: 400;
+    --pp-z-popover: 500;
+    --pp-z-tooltip: 600;
+    --pp-z-toast: 700;
+
+    /* ========================================
+       8. COMPONENT TOKENS
+       ======================================== */
+
+    /* Button */
+    --pp-btn-height-sm: 32px;
+    --pp-btn-height-md: 40px;
+    --pp-btn-height-lg: 48px;
+
+    /* Input */
+    --pp-input-height-sm: 32px;
+    --pp-input-height-md: 40px;
+    --pp-input-height-lg: 48px;
+
+    /* Card */
+    --pp-card-padding: var(--pp-space-4);
+    --pp-card-radius: var(--pp-radius-xl);
+
+    /* Header */
+    --pp-header-height: 64px;
+
+    /* Map Marker */
+    --pp-marker-size: 40px;
+    --pp-marker-size-sm: 32px;
+    --pp-marker-size-lg: 48px;
+}
+
+/* ========================================
+   DARK THEME
+   ======================================== */
+
+.dark-theme {
+    /* Inverted Neutrals for Dark Mode */
+    --pp-neutral-0: #0f172a;
+    --pp-neutral-50: #1e293b;
+    --pp-neutral-100: #334155;
+    --pp-neutral-200: #475569;
+    --pp-neutral-300: #64748b;
+    --pp-neutral-400: #94a3b8;
+    --pp-neutral-500: #cbd5e1;
+    --pp-neutral-600: #e2e8f0;
+    --pp-neutral-700: #f1f5f9;
+    --pp-neutral-800: #f8fafc;
+    --pp-neutral-900: #ffffff;
+    --pp-neutral-950: #ffffff;
+
+    /* Adjusted Primary for dark */
+    --pp-primary-50: #1e3a5f;
+    --pp-primary-100: #1e40af;
+    --pp-primary-200: #1d4ed8;
+    --pp-primary-300: #2563eb;
+    --pp-primary-400: #3b82f6;
+    --pp-primary-500: #60a5fa;
+    --pp-primary-600: #93c5fd;
+
+    /* Dark mode shadows */
+    --pp-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --pp-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --pp-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --pp-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    --pp-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.4);
+    --pp-shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.4), 0 16px 48px rgba(0, 0, 0, 0.5);
+
+    /* Gradient adjustments */
+    --pp-gradient-surface: linear-gradient(180deg, var(--pp-neutral-50) 0%, var(--pp-neutral-100) 100%);
+}
+
+/* Light theme (explicit) */
+.light-theme {
+    /* Uses default :root values */
+}
+
+/* System preference fallback (only if no theme class set) */
+@media (prefers-color-scheme: dark) {
+    :root:not(.light-theme):not(.dark-theme) {
+        --pp-neutral-0: #0f172a;
+        --pp-neutral-50: #1e293b;
+        --pp-neutral-100: #334155;
+        --pp-neutral-200: #475569;
+        --pp-neutral-300: #64748b;
+        --pp-neutral-400: #94a3b8;
+        --pp-neutral-500: #cbd5e1;
+        --pp-neutral-600: #e2e8f0;
+        --pp-neutral-700: #f1f5f9;
+        --pp-neutral-800: #f8fafc;
+        --pp-neutral-900: #ffffff;
+
+        --pp-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.2), 0 4px 16px rgba(0, 0, 0, 0.3);
+        --pp-shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.3), 0 16px 48px rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --pp-duration-instant: 0ms;
+        --pp-duration-fast: 0ms;
+        --pp-duration-normal: 0ms;
+        --pp-duration-moderate: 0ms;
+        --pp-duration-slow: 0ms;
+        --pp-duration-slower: 0ms;
+        --pp-duration-slowest: 0ms;
+    }
+}

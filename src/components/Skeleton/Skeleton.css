@@ -1,0 +1,189 @@
+/**
+ * Skeleton Component Styles
+ * Shimmer loading animation
+ */
+
+/* Base Skeleton */
+.skeleton {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, #f0f0f0 0%, #e8e8e8 50%, #f0f0f0 100%);
+    background-size: 200% 100%;
+}
+
+.skeleton-shimmer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.6) 50%,
+            transparent 100%);
+}
+
+/* Text container */
+.skeleton-text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Place Card Skeleton */
+.place-card-skeleton {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.place-card-skeleton .skeleton-content {
+    padding: 1rem;
+}
+
+.place-card-skeleton .skeleton-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.place-card-skeleton .skeleton-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.place-card-skeleton .skeleton-actions {
+    display: flex;
+    gap: 0.625rem;
+    margin-top: 1rem;
+}
+
+/* Skeleton List */
+.skeleton-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Search Bar Skeleton */
+.search-bar-skeleton {
+    padding: 1.5rem;
+    background: white;
+}
+
+.search-bar-skeleton .skeleton-quick-moods {
+    display: flex;
+    gap: 0.625rem;
+    margin-top: 1.25rem;
+    overflow: hidden;
+}
+
+/* Map Skeleton */
+.map-skeleton {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-skeleton-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    z-index: 1;
+}
+
+/* Details Skeleton */
+.details-skeleton {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    max-width: 520px;
+    width: 100%;
+}
+
+.skeleton-details-content {
+    padding: 1.75rem;
+}
+
+.skeleton-details-content .skeleton-meta {
+    display: flex;
+    gap: 0.875rem;
+    margin-top: 0.75rem;
+}
+
+.skeleton-details-content .skeleton-distance {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.skeleton-details-content .skeleton-detail-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin-top: 1.5rem;
+}
+
+/* Animation for color shift */
+@keyframes skeletonPulse {
+
+    0%,
+    100% {
+        background-color: #f0f0f0;
+    }
+
+    50% {
+        background-color: #e0e0e0;
+    }
+}
+
+.skeleton {
+    animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .skeleton {
+        background: linear-gradient(90deg, #2a2a2a 0%, #3a3a3a 50%, #2a2a2a 100%);
+    }
+
+    .skeleton-shimmer {
+        background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 100%);
+    }
+
+    .place-card-skeleton,
+    .details-skeleton {
+        background: #1f1f1f;
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .search-bar-skeleton {
+        background: #1f1f1f;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .skeleton {
+        animation: none;
+    }
+
+    .skeleton-shimmer {
+        display: none;
+    }
+}

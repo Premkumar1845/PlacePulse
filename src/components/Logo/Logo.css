@@ -1,0 +1,120 @@
+/**
+ * PlacePulse Logo Styles
+ * Styling for the animated brand mark
+ */
+
+.pp-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pp-space-3, 0.75rem);
+}
+
+.pp-logo__mark {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pp-logo__svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.pp-logo__rings {
+    transform-origin: center;
+}
+
+.pp-logo__pin {
+    transition: filter 0.3s ease;
+}
+
+/* Text styles */
+.pp-logo__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pp-logo__name {
+    font-family: var(--pp-font-display, 'Inter', sans-serif);
+    font-size: var(--pp-text-xl, 1.25rem);
+    font-weight: var(--pp-weight-bold, 700);
+    letter-spacing: var(--pp-tracking-tight, -0.025em);
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #d946ef 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+}
+
+.pp-logo__tagline {
+    font-size: var(--pp-text-xs, 0.75rem);
+    font-weight: var(--pp-weight-medium, 500);
+    color: var(--pp-neutral-500, #64748b);
+    letter-spacing: var(--pp-tracking-wide, 0.025em);
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+/* Variant: Minimal */
+.pp-logo--minimal .pp-logo__rings {
+    display: none;
+}
+
+/* Variant: Glow */
+.pp-logo--glow .pp-logo__mark {
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.4));
+}
+
+.pp-logo--glow .pp-logo__pin {
+    filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.5));
+}
+
+/* Variant: Loader */
+.pp-logo--loader {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.5));
+    }
+}
+
+/* Hover effects */
+.pp-logo:hover .pp-logo__name {
+    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .pp-logo__tagline {
+        color: var(--pp-neutral-400, #94a3b8);
+    }
+
+    .pp-logo--glow .pp-logo__mark {
+        filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.6));
+    }
+}
+
+/* Responsive sizing */
+@media (max-width: 640px) {
+    .pp-logo__name {
+        font-size: var(--pp-text-lg, 1.125rem);
+    }
+
+    .pp-logo__tagline {
+        display: none;
+    }
+}
