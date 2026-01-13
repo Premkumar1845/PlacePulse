@@ -3,6 +3,12 @@
  * Base styles, CSS reset, and design tokens
  */
 
+/* Mobile-first touch improvements */
+* {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
 /* CSS Variables / Design Tokens */
 :root {
     /* Colors - Primary */

@@ -385,7 +385,7 @@ export const calculateRelevanceScore = (place, moodMapping) => {
     const matchingTypes = placeTypes.filter(type =>
         moodMapping.types.includes(type)
     );
-    
+
     // Primary type (first in moodMapping.types) gets extra bonus
     if (matchingTypes.length > 0) {
         const primaryType = moodMapping.types[0];

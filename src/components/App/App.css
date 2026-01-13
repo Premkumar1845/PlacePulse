@@ -282,12 +282,20 @@
 
 /* Tablet & Mobile */
 @media (max-width: 768px) {
+    .app {
+        height: 100vh;
+        height: 100dvh; /* Dynamic viewport height for mobile browsers */
+    }
+
     .main-content {
         flex-direction: column;
+        height: calc(100vh - 120px);
+        height: calc(100dvh - 120px);
     }
 
     .mobile-view-toggle {
         display: flex;
+        bottom: calc(var(--pp-space-4, 1rem) + env(safe-area-inset-bottom, 0px));
     }
 
     .panel {
@@ -299,15 +307,25 @@
     .list-panel {
         flex: 1;
         border-right: none;
+        height: 100%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 80px; /* Space for toggle button */
     }
 
     .map-panel {
         position: absolute;
         inset: 0;
+        padding: 0;
     }
 
     .hidden-mobile {
         display: none !important;
+    }
+
+    .toggle-btn {
+        min-height: 44px;
+        min-width: 44px;
     }
 }
 

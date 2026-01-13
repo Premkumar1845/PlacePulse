@@ -172,7 +172,6 @@
     font-size: var(--pp-text-xs, 0.75rem);
     color: var(--pp-neutral-500);
 }
-}
 
 /* Info Row */
 .place-info {
@@ -322,6 +321,19 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    .place-card {
+        border-radius: var(--pp-radius-lg, 0.75rem);
+    }
+
+    .place-card:hover {
+        transform: none; /* Disable hover transform on mobile */
+    }
+
+    .place-card:active {
+        transform: scale(0.98);
+        background: var(--pp-neutral-50);
+    }
+
     .place-photo {
         height: 120px;
     }
@@ -335,11 +347,13 @@
     }
 
     .place-actions {
-        flex-direction: column;
+        flex-direction: row;
+        gap: var(--pp-space-2, 0.5rem);
     }
 
     .action-btn {
-        width: 100%;
+        min-height: 44px; /* Touch-friendly minimum */
+        flex: 1;
     }
 }
 
