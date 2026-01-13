@@ -60,9 +60,9 @@ const useGeolocation = (options = {}) => {
     }, []);
 
     /**
-     * Fetch current location
+     * Fetch current location with retry for mobile
      */
-    const fetchLocation = useCallback(async () => {
+    const fetchLocation = useCallback(async (retryCount = 0) => {
         if (!isGeolocationSupported()) {
             setError(new Error('Geolocation is not supported by your browser.'));
             setLocation(fallbackLocation);
@@ -80,6 +80,14 @@ const useGeolocation = (options = {}) => {
             // Fetch address after getting coordinates
             fetchAddress(coords);
         } catch (err) {
+            console.warn('Location fetch failed:', err.message);
+            
+            // Retry once on mobile if it's a timeout error
+            if (retryCount < 1 && err.message.includes('timed out')) {
+                console.log('Retrying location fetch...');
+                return fetchLocation(retryCount + 1);
+            }
+            
             setError(err);
             setLocation(fallbackLocation);
         } finally {

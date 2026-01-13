@@ -4,10 +4,19 @@
  */
 
 /**
- * Default geolocation options
+ * Default geolocation options - optimized for mobile
  */
 const DEFAULT_OPTIONS = {
     enableHighAccuracy: true,
+    timeout: 15000, // 15 seconds - more time for mobile GPS
+    maximumAge: 60000 // 1 minute cache for better mobile experience
+};
+
+/**
+ * Low accuracy fallback options for mobile
+ */
+const LOW_ACCURACY_OPTIONS = {
+    enableHighAccuracy: false,
     timeout: 10000,
     maximumAge: 300000 // 5 minutes cache
 };
@@ -16,10 +25,10 @@ const DEFAULT_OPTIONS = {
  * Error messages for geolocation failures
  */
 const ERROR_MESSAGES = {
-    1: 'Location access denied. Please enable location permissions in your browser settings.',
-    2: 'Unable to determine your location. Please try again.',
-    3: 'Location request timed out. Please try again.',
-    default: 'An error occurred while getting your location.'
+    1: 'Location access denied. Please enable location permissions in your browser/device settings.',
+    2: 'Unable to determine your location. Please ensure GPS/Location is enabled on your device.',
+    3: 'Location request timed out. Please check your GPS signal and try again.',
+    default: 'An error occurred while getting your location. Please try again.'
 };
 
 /**
@@ -44,13 +53,29 @@ export const getCurrentPosition = (options = {}) => {
 
         const mergedOptions = { ...DEFAULT_OPTIONS, ...options };
 
+        // First try with high accuracy
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 resolve(position);
             },
             (error) => {
-                const message = ERROR_MESSAGES[error.code] || ERROR_MESSAGES.default;
-                reject(new Error(message));
+                // If high accuracy fails with timeout, try low accuracy (mobile fallback)
+                if (error.code === 3 && mergedOptions.enableHighAccuracy) {
+                    console.log('High accuracy timed out, trying low accuracy...');
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            resolve(position);
+                        },
+                        (fallbackError) => {
+                            const message = ERROR_MESSAGES[fallbackError.code] || ERROR_MESSAGES.default;
+                            reject(new Error(message));
+                        },
+                        LOW_ACCURACY_OPTIONS
+                    );
+                } else {
+                    const message = ERROR_MESSAGES[error.code] || ERROR_MESSAGES.default;
+                    reject(new Error(message));
+                }
             },
             mergedOptions
         );
