@@ -1,4 +1,4 @@
-# 📍PlacePulse - Real-Time Place Intelligence
+# 📍PlacePulse - Real Time Place Intelligence
 
 <div align="center">
 
