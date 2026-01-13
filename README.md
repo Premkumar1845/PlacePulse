@@ -1,4 +1,4 @@
-# 🌍 PlacePulse - Real-Time Place Intelligence
+# 📍PlacePulse - Real-Time Place Intelligence
 
 <div align="center">
 
@@ -29,7 +29,7 @@ PlacePulse is a modern, intelligent place discovery application that helps users
 
 ---
 
-## ✨ Features
+##  Features
 
 ### 🔍 Smart Search
 - **Mood-Based Discovery** - Natural language search understands your intent
@@ -117,7 +117,7 @@ VITE_GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open https://placepulse-chi.vercel.app in your browser.
 
 ---
 
@@ -273,12 +273,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 👨‍💻 Author
-
-**Prem Kumar**
-- GitHub: [@Premkumar1845](https://github.com/Premkumar1845)
-
----
 
 ## 🙏 Acknowledgments
 
@@ -292,6 +286,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **⭐ Star this repo if you find it useful!**
 
-Made with ❤️ by [Prem Kumar](https://github.com/Premkumar1845)
 
 </div>
